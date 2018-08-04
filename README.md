@@ -2,7 +2,8 @@
 Android TCP Connection Library with 2 excellent classes: TCPClient + TCPServer_Multithreaded
 
 TCPClient: Is a TCP client class which can communicate with Server.
-TCPServer_Multithreaded is a powerful TCP Server class which can manage infinity number of clients or send a message to a specific clients and too many other useful functions.
+
+TCPServer_Multithreaded: Is a powerful TCP Server class which can manage infinity number of clients or send a message to a specific clients and too many other useful functions.
 
 Note: Class TCPClient is only for Android (not other Java applications) because it uses Android AsyncTask class for handling the Client.
 
