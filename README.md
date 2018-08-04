@@ -9,6 +9,8 @@ Note: Class TCPClient is only for Android (not other Java applications) because 
 
 Note: Class TCPServer_Multithreaded is for Java and you change its package name, then use it for other Java projects (because it uses Java classes like: Thread, Runnable, Socket, and other Java classes).
 
-This classes are free and anyone can use that or change it.
+Note: I will release Javadoc for these classes later.
+
+These classes are free and anyone can use that or change it.
 
 H. Farid from Iran
