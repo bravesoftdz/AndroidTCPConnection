@@ -8,8 +8,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import android.os.AsyncTask;
-import android.os.Handler;
 
+/**
+ * @author      Hadi Farid <hadifaridhadi@gmail.com>
+ * @version     1.0
+ * @since       1.0
+ */
 public class TCPClient {
     private String host;
     private int port;
@@ -19,11 +23,17 @@ public class TCPClient {
 	private OnTCPClientReceived onReceive;
 	private boolean alreadyStarted = false;
 	
+	/**
+	 * Initializes the client. You must set Host and Port after this, then call start().
+	 */	
 	public TCPClient() {
 		host = "";
 		port = 0;
 	}
 	
+	/**
+	 * Start and connect to Server
+	 */
 	public void start() {
 		if (!alreadyStarted) {
 			alreadyStarted = true;
@@ -32,6 +42,10 @@ public class TCPClient {
 		}
 	}
 	
+	/**
+	 * Sends your message to server. You can use JSON instead of plain text.
+	 * @param data The message you want to send
+	 */
 	public void sendMessageToServer(final String data) {
 		Runnable runnable = new Runnable() {
 			
@@ -55,6 +69,10 @@ public class TCPClient {
 		thread.start();
 	}
 	
+	/**
+	 * Sets Host Name of yout Server
+	 * @param value The Host Name of the Server
+	 */
 	public void setHost(String value) {
 		this.host = value;
 	}
@@ -63,6 +81,9 @@ public class TCPClient {
 		return host;
 	}
 	
+	/**
+	 * Sets Port for connection.
+	 */
 	public void setPort(int value) {
 		this.port = value;
 	}
@@ -71,10 +92,21 @@ public class TCPClient {
 		return port;
 	}
 	
+	/**
+	 * Returns true if the client is connected to the server.
+	 */
 	public boolean isConnected() {
-		return s.isConnected();
+		try {
+			return s.isConnected();
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
+	/**
+	 * Set an on received listener.
+	 */
 	public void setOnReceived(OnTCPClientReceived value) {
 		onReceive = value;
 	}
